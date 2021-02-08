@@ -1,4 +1,4 @@
-image: docker.io/drycc/go-dev:{{#if build.tag}}{{trimPrefix "v" build.tag}}{{else}}latest{{/if}}
+image: docker.io/jianxiaoguo/go-dev:{{#if build.tag}}{{trimPrefix "v" build.tag}}{{else}}latest{{/if}}
 {{#if build.tags}}
 tags:
 {{#each build.tags}}
@@ -7,12 +7,12 @@ tags:
 {{/if}}
 manifests:
   -
-    image: docker.io/drycc/go-dev:{{#if build.tag}}{{build.tag}}{{else}}latest-{{/if}}linux-amd64
+    image: docker.io/jianxiaoguo/go-dev:{{#if build.tag}}{{build.tag}}-{{else}}latest-{{/if}}linux-amd64
     platform:
       architecture: amd64
       os: linux
   -
-    image: docker.io/drycc/go-dev:{{#if build.tag}}{{build.tag}}{{else}}latest-{{/if}}linux-arm64
+    image: docker.io/jianxiaoguo/go-dev:{{#if build.tag}}{{build.tag}}-{{else}}latest-{{/if}}linux-arm64
     platform:
       architecture: arm64
       os: linux

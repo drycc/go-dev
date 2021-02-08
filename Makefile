@@ -1,6 +1,6 @@
 VERSION ?= $(shell git describe --tags --exact-match 2>/dev/null || echo latest)
 DEV_REGISTRY ?= docker.io
-IMAGE_PREFIX ?= drycc
+IMAGE_PREFIX ?= jianxiaoguo
 IMAGE := ${DEV_REGISTRY}/${IMAGE_PREFIX}/go-dev:${VERSION}
 PLATFORM ?= linux/amd64,linux/arm64
 
