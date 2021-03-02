@@ -14,6 +14,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_10/Release.key | apt-key add - \
   && apt-get update \
   && apt-get -y -t buster-backports install libseccomp2 \
+  && apt-get install -y podman \
   && apt-get upgrade -y --no-install-recommends \
   && apt-get install -y --no-install-recommends \
     lsb-release \
@@ -41,7 +42,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     zip \
     shellcheck \
     etcd \
-    podman \
   && curl -o /usr/local/bin/kubectl \
     -L "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/$(dpkg --print-architecture)/kubectl" \
   && chmod +x /usr/local/bin/kubectl \
