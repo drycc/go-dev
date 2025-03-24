@@ -3,7 +3,7 @@ FROM registry.drycc.cc/drycc/base:${CODENAME}
 
 LABEL name="drycc-go-dev"
 
-ENV GO_VERSION=1.23
+ENV GO_VERSION=1.24.1
 ENV GOLANGCI_LINT_VERSION=v1.61.0
 
 # This is a huge one-liner to optimize the Container image layer.
