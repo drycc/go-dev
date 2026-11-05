@@ -3,8 +3,8 @@ FROM registry.drycc.cc/drycc/base:${CODENAME}
 
 LABEL name="drycc-go-dev"
 
-ARG GO_VERSION=1.26 \
-  GOLANGCI_LINT_VERSION=v2.11.4
+ARG GO_VERSION=1.27 \
+  GOLANGCI_LINT_VERSION=v2.15.0
 
 # This is a huge one-liner to optimize the Container image layer.
 # We disable source repos to speed up apt-get update.
@@ -50,7 +50,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && go env -w GO111MODULE=on \
   && go install github.com/mgechev/revive@latest \
   && go install github.com/gosexy/gettext/go-xgettext@latest \
-  && curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin $GOLANGCI_LINT_VERSION \
+  && curl -sSfL "https://raw.githubusercontent.com/golangci/golangci-lint/${GOLANGCI_LINT_VERSION}/install.sh" | sh -s -- -b $(go env GOPATH)/bin $GOLANGCI_LINT_VERSION \
   && mkdir -p /var/lib/shared/{overlay-images,overlay-layers} \
   && touch /var/lib/shared/{overlay-images/images.lock,overlay-layers/layers.lock} \
   && apt-get autoremove -y \
